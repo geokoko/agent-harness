@@ -14,8 +14,8 @@ Codex links every canonical source. Its four opt-in contracts use
 four small `disable-model-invocation: true` entrypoints, each linking a shared
 contract and any references; `note-creation`, `decision-review`, `cpo`, `cto`,
 `ui-design`, `docs-update`, `browser-qa`, `skill-eval`, `ci-repair`,
-`consult`, `learn-by-building` and `project-catchup` link directly and support
-native discovery. The review
+`consult`, `learn-by-building`, `project-catchup` and `agents-md-modernizer`
+link directly and support native discovery. The review
 adapter is `/evidence-review` in Claude to avoid its bundled `/review` alias,
 and `$review` in Codex. These controls remove accidental activation without
 imposing identical client behavior.

@@ -47,11 +47,13 @@ measurements are not measured token or billing savings.
 [shared-skills/](shared-skills/) contains the canonical bodies for
 `note-creation`, `review`, `decision-review`, `cpo`, `cto`, `ui-design`,
 `docs-update`, `browser-qa`, `skill-eval`, `ci-repair`, `consult`,
-`learn-by-building`, `project-catchup`, `handoff`, `ship` and `deploy-verify`.
+`learn-by-building`, `project-catchup`, `agents-md-modernizer`, `handoff`,
+`ship` and `deploy-verify`.
 Their frontmatter contains only `name` and `description`. Notes, product
 leadership, technical leadership, decision review, frontend design,
 documentation updates, browser QA, skill evaluation, CI repair, cross-model
-consultation, guided learning and project catch-up support native discovery.
+consultation, guided learning, project catch-up and agent-instruction
+modernization support native discovery.
 Decision-review includes office-hours brainstorming and a learning/fun project
 mode; only requested decisions require a verdict. Review, handoff, shipping and
 deployment verification remain opt-in.

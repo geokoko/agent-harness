@@ -22,6 +22,7 @@ worktrees and subagents. This repository adds no agent runtime or routing layer.
 | [ci-repair](shared-skills/ci-repair/SKILL.md) | Diagnose a specific failed CI revision and repair its cause with truthful validation | Native discovery or explicit selection |
 | [consult](shared-skills/consult/SKILL.md) | Read-only opinion from a different model in fresh context, reconciled and verified before acting; unavailability reported, not substituted | Native discovery or explicit selection |
 | [project-catchup](shared-skills/project-catchup/SKILL.md) | Read-only return briefing: recover roadmap and WIP, explain relevant collaborator changes since a baseline and orient to areas the user names | Native discovery or explicit selection |
+| [agents-md-modernizer](shared-skills/agents-md-modernizer/SKILL.md) | Reduce AGENTS.md/CLAUDE.md to what an agent cannot infer: keep/remove/move/rewrite classification, protected rare-but-critical rules, verified commands and paths, and a disposition report with evidence | Native discovery or explicit selection |
 | [handoff](shared-skills/handoff/SKILL.md) | Provider-neutral export with revision identity and reconciliation of stale evidence | Explicit skill selection |
 | [ship](shared-skills/ship/SKILL.md) | Exact-change Claude review before shipping Codex work, scoped publication intent and precise status | Explicit skill selection |
 | [deploy-verify](shared-skills/deploy-verify/SKILL.md) | Existing-deployment verification, exact revision and bounded baseline comparison | Explicit skill selection |
@@ -56,7 +57,8 @@ to the requested interface. The owner also selected `browser-qa`, `skill-eval`
 and `ci-repair` for repeatable journey tests, skill comparisons and CI repairs,
 and `learn-by-building` for learning engineering through real project work.
 `project-catchup` restores context after time away, with a scoped change briefing
-and optional orientation to an unfamiliar area.
+and optional orientation to an unfamiliar area. `agents-md-modernizer` reduces a
+repository's agent instructions to what a current agent cannot infer.
 Mandatory phase sequences do not earn a skill, nor do role personas, repeated
 review loops or fixed model assignments. Project facts
 belong in that project's instructions and documentation.

@@ -2,9 +2,9 @@
 
 This registry exposes the capabilities in [the catalog](../README.md).
 `note-creation`, `decision-review`, `cpo`, `cto`, `ui-design`, `docs-update`,
-`browser-qa`, `skill-eval`, `ci-repair`, `consult`, `learn-by-building` and
-`project-catchup` link directly to shared sources and can be discovered from
-their descriptions.
+`browser-qa`, `skill-eval`, `ci-repair`, `consult`, `learn-by-building`,
+`project-catchup` and `agents-md-modernizer` link directly to shared sources and
+can be discovered from their descriptions.
 
 `evidence-review`, `handoff`, `ship` and `deploy-verify` have short Claude
 entrypoints with `disable-model-invocation: true`. Invoke them with

@@ -45,6 +45,7 @@ Claude uses `/name`, except the review entry is `/evidence-review`.
 | `ci-repair` | Diagnose and repair a concrete failed CI run; distinguish local and hosted results | Fix failing CI checks or pipeline jobs |
 | `consult` | Read-only, fresh-context opinion from a different actual model, reconciled and verified by the current agent | Consult another or a named model; second opinion from one |
 | `project-catchup` | Read-only return briefing: roadmap/WIP, relevant collaborator changes since a baseline, orientation to named areas | Return to a project after time away; not retrospectives or plain explanations |
+| `agents-md-modernizer` | Reduce repository agent-instruction files to non-inferable project constraints, with verified commands/paths and a disposition report | Audit, simplify or modernize AGENTS.md, CLAUDE.md or related instruction files |
 | `handoff` | Portable task state tied to actual revision, evidence and authority | Explicit selection |
 | `ship` | Precisely authorized publication and mandatory Claude review of Codex changes | Explicit selection |
 | `deploy-verify` | Verify an already-triggered deployment and requested bounded monitoring | Explicit selection |
@@ -67,6 +68,7 @@ The owner also requested `learn-by-building`, a new skill with no source
 predecessor.
 `project-catchup` subsequently reworks the old weekly-review/retro use case into
 a return-to-project briefing with an explicit baseline and personal scope.
+`agents-md-modernizer` is likewise new, with no source predecessor.
 
 The four inherited opt-in contracts remain opt-in. Selection and publication
 are separate: invoking `ship` does not create authority beyond the request.

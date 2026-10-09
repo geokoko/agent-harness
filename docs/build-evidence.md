@@ -25,8 +25,8 @@ checks. Publication review evidence identifies the exact diff separately.
 Each client registry exposes every shared contract. Shared bodies hold common
 behavior; native metadata controls discovery. Four retain explicit invocation;
 notes, CPO, CTO, decision-review, ui-design, docs-update, browser-qa,
-skill-eval, ci-repair, consult, learn-by-building and project-catchup use normal
-discovery. There is no global
+skill-eval, ci-repair, consult, learn-by-building, project-catchup and
+agents-md-modernizer use normal discovery. There is no global
 router, fixed model table, custom graph launcher or new persistent state engine.
 Hooks remain deferred; installed native permissions are not claimed equivalent.
 
@@ -200,6 +200,90 @@ trials ran against the original text, so the read-only, resume and
 recover-then-ask rules have not been exercised; real discovery and briefing
 quality are not evaluated. No new dependency, automatic state store, memory
 update or scheduled task was introduced.
+
+## Agents-md-modernizer addition
+
+On 2026-10-05 the owner requested `agents-md-modernizer` from an owner-supplied
+draft. Claude Code (`claude-fable-5-1`) reduced it to the shared body, separated
+verification from reporting, and added the disposition, evidence, unverified
+and size report. It was then compared with native behavior in fresh headless
+Claude Code 2.1.289 sessions on `claude-fable-5-1`: project settings only, no
+MCP servers, `docs-update` and `ci-repair` as neighbors, and one request that
+named no skill. Every session that had the skill available selected it (7 of 7).
+
+A synthetic repository carried a 188-line `AGENTS.md` with twelve seeded
+project constraints, seven stale commands or paths, and one subsystem-only
+section. Two native runs and three skill runs all preserved the twelve
+constraints and removed every stale item and the generic advice. They differed
+in scope and report. Native kept the subsystem section in a 3.5–3.6 kB root
+file. The skill moved it to a nested file every time, leaving a 1.9–2.2 kB
+root, and reported per-instruction dispositions, the file supporting each
+command and path, and the claims it could not verify. Skill runs cost
+$1.08–1.18 against $0.74–0.80.
+
+On this repository's own 46-line `AGENTS.md` at the time, neither arm
+shortened the file: native produced 90 lines and the skill 69. Each replaced
+generic conduct with constraints found by inspection, several of them already
+enforced by `scripts/test-helpers`. The contract now applies its test to
+additions as well; one rerun produced 63 lines, which a single run cannot
+separate from ordinary variation.
+
+The owner then asked for four changes. Loader behavior was probed with
+codewords in root and nested files on Claude Code 2.1.289 and codex-cli 0.160.0
+and recorded in the skill's `references/loaders.md`; it matched both clients'
+documentation. The contract now proposes additions in the report instead of
+writing them, keeps one root pointer for moved content, and has shorter keep
+and remove classes. On the 46-line file this produced 40 lines.
+
+The revised contract was compared with native behavior on harder requests, one
+run per arm unless stated:
+
+- An audit request without an explicit prohibition: neither arm edited a file.
+- A drifted `CLAUDE.md` copy holding one unique constraint, one Claude-specific
+  line and an instruction that contradicted a data-loss rule: both arms
+  consolidated to an `@AGENTS.md` import, kept both lines in the right file and
+  removed the contradiction.
+- A 72-line firmware `AGENTS.md` with twenty-four real hardware, safety and
+  compatibility constraints and seven filler lines, with a request to trim it:
+  two native `claude-fable-5-1` runs left 22 and 17 of the constraints in the
+  instruction file. They dropped rules stated elsewhere in the repository and
+  moved bench-safety rules into a document, in one run editing that document
+  unasked; each removal was disclosed. Three skill runs left 24, 24 and 23,
+  the last removing one rule a Makefile enforces and saying so.
+- `claude-sonnet-5-5` on the 188-line fixture: both arms kept all twelve
+  constraints.
+- Codex (`gpt-6-astra`, high effort, user configuration ignored, no personal
+  skills): both arms kept all twelve constraints on the 188-line fixture and
+  all twenty-four on the firmware file. The native run loaded `docs-update`;
+  the skill run loaded this skill and scoped the subsystem rules. Its first
+  run also kept two generic security lines, wrote an "unverified" caveat into
+  the instruction file and put its report in a file outside the workspace. The
+  contract was reworded on those three points and one rerun showed none.
+
+Limits: the same author wrote the skill and the synthetic fixtures and graded
+unblinded. Criteria were fixed before each run; the pattern checker was
+corrected several times after reading outputs, and every loss reported here was
+confirmed by reading the file. Most cells are single runs. Only the Codex rerun
+and one firmware run used the final wording; the other second-round cells used
+the snapshot before the three Codex-driven changes. Sessions could not execute
+repository commands, and the fixtures were not Git repositories. Four early
+runs were discarded because Claude Code refuses edits under `~/.claude/`. In
+total, 33 Claude sessions cost $27.71 as reported by the client, and Codex ran
+nine. Raw event streams, fixtures and graders are in a local session directory
+outside this repository.
+
+On 2026-10-09 a Claude Code (`claude-opus-5-5`) review probed the Claude Code
+loader entries again on 2.1.295 with `claude-sonnet-5-5`; all held, including
+nested `AGENTS.md` loading without a `CLAUDE.md` and a nested `CLAUDE.md`
+importing `@AGENTS.md`. The same probes on a Haiku model missed nested files
+attached to tool results, so the reference now asks for a capable model and a
+Read in the nested directory. Codex was not run; its entries were checked
+against strings in the codex-cli 0.160.0 binary, whose built-in prompt tells
+the model to look for applicable `AGENTS.md` files in subdirectories, so the
+reference no longer says a nested file is never seen. The review also moved
+the every-session root rule from the reference into the contract, limited
+REWRITE reasons to ones the original or repository supplies, and covered
+personal or global files. These wording changes were not re-evaluated.
 
 ## Validation boundaries
 

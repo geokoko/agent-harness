@@ -3,8 +3,8 @@
 Relative directory links resolve to canonical sources in
 [shared-skills/](../shared-skills/). See [the catalog](../README.md).
 `note-creation`, `decision-review`, `cpo`, `cto`, `ui-design`, `docs-update`,
-`browser-qa`, `skill-eval`, `ci-repair`, `consult`, `learn-by-building` and
-`project-catchup` support native discovery.
+`browser-qa`, `skill-eval`, `ci-repair`, `consult`, `learn-by-building`,
+`project-catchup` and `agents-md-modernizer` support native discovery.
 The other four sources
 carry `agents/openai.yaml` with `allow_implicit_invocation: false`: request
 `$review`, `$handoff`, `$ship` or `$deploy-verify` explicitly.

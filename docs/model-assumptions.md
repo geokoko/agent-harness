@@ -52,6 +52,16 @@ coverage, baseline honesty and recovered WIP improve observably without unwanted
 writes. No activity scoring
 or automatic state store is required.
 
+`agents-md-modernizer` matched native Claude Code and Codex at removing generic
+or stale instructions, at audit-only requests and at consolidating duplicated
+files. It differed in subtree scoping, in a checkable disposition and evidence
+report, and, on `claude-fable-5-1` only, in keeping real constraints when asked
+to shorten a legitimately long file. It cost roughly 10–55% more per Claude run
+([evidence](build-evidence.md#agents-md-modernizer-addition)). Retire it when
+native output keeps such constraints, scopes subtree rules and reports
+dispositions unprompted. Probe its loader reference again after a client
+upgrade.
+
 For a weaker model, narrow the task and make its acceptance checks explicit; add
 a targeted instruction only after reproducing the failure. Clients without native
 opt-in skills can read one selected contract directly. Use the client's supported
