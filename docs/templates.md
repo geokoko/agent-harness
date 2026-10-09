@@ -129,12 +129,9 @@ Do not add implementation-mirroring tests for reversible prose/layout changes.
 
 ## Provenance
 
-Selected from the `main` snapshots of
-[domain modeling](https://github.com/geokoko/agent-harness/tree/e65d080f2a69457942abaee69d613e1851e9314d/shared-skills/domain-modeling),
-[module design](https://github.com/geokoko/agent-harness/tree/e65d080f2a69457942abaee69d613e1851e9314d/shared-skills/codebase-design),
-[TDD](https://github.com/geokoko/agent-harness/tree/e65d080f2a69457942abaee69d613e1851e9314d/shared-skills/test-first-development),
-[tickets](https://github.com/geokoko/agent-harness/blob/e65d080f2a69457942abaee69d613e1851e9314d/claude-skills/to-tickets/SKILL.md),
-and September’s
-[scope and evidence corrections](https://github.com/geokoko/agent-harness/blob/128efe0edf1418958e473f384694ea9358b6c435/docs/skill-tuning.md).
+Selected from the August harness's domain-modeling, module-design,
+test-first and ticket-splitting skills, which were adapted from Matt Pocock's
+MIT-licensed skills, and from the September tuning line's ledger of scope and
+evidence corrections.
 These selections deliberately remove compulsory interviews, universal seam
 approval, fixed file destinations and repeated permission prompts.

@@ -14,9 +14,8 @@ commit `0ab1b63a410a03d3627979a109c8695de27af954`:
 - `wayfinder`
 - the Standards/Spec additions to `code-check`
 
-The rewrite removes these procedural skills. This notice remains for retained
-review criteria, optional templates and the attributable material preserved in
-repository history. Product references also preserve their original links to
+The rewrite removes these procedural skills. This notice remains for the
+review criteria and optional templates that still derive from them. Product references also preserve their original links to
 Anthropic's product-management and small-business plugin examples; those are
 source acknowledgments, not installed dependencies.
 

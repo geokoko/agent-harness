@@ -42,7 +42,7 @@ def workload_metrics(root):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--baseline", default="e65d080", help="Local Git commit to compare")
+    parser.add_argument("--baseline", default="HEAD", help="Local Git commit to compare (default: HEAD)")
     parser.add_argument("--output", type=Path, help="Also write this JSON report to a file")
     args = parser.parse_args()
     baseline = subprocess.check_output(["git", "rev-parse", "--verify", f"{args.baseline}^{{commit}}"], cwd=ROOT, text=True).strip()

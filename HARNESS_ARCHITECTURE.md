@@ -152,8 +152,8 @@ claiming a denied action cannot execute.
 and deterministic tests with isolated destinations. Checks protect installer,
 metadata, symlink and artifact contracts; they do not establish model competence.
 The [evaluation record](evals/README.md) keeps structural and native-discovery
-evidence and a summary of the removed historical PR #5 coding comparison, which
-does not measure this integrated candidate. Local checks cannot establish
+evidence and a summary of the removed historical coding comparison of the Codex
+rebuild, which does not measure this integrated candidate. Local checks cannot establish
 model-task superiority.
 
 Native transcripts and usage counters supply observability for model runs.

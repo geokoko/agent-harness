@@ -36,11 +36,14 @@ linked from `claude/CLAUDE.md` and `codex/AGENTS.md`. They preserve the owner’
 standing requirements: explicit permission for shipping and Claude review before
 shipping Codex-written changes. Review itself grants no publication authority.
 
-This integrated rebuild reconciles `main`, the September
-`skills/shared-graph-model-tuning` branch, and PRs #4 and #5. The
+This integrated rebuild reconciles four earlier versions of the harness: the
+August cross-client harness, a September line that tuned model roles and added
+CPO/CTO skills, a Claude proposal that cut the catalog to 18 skills, and a Codex
+rebuild around native client capabilities. The
 [full registry map](docs/registry-map.md) records every old name and its destination;
-[build evidence](docs/build-evidence.md) distinguishes source history, local checks
-and model review. Publishing the branch does not install it in either client.
+[build evidence](docs/build-evidence.md) distinguishes how the rebuild was
+assembled, local checks and model review. Publishing does not install it in
+either client.
 
 ## What earns a skill
 
@@ -122,6 +125,6 @@ whose improvement no longer justifies its cost.
 - [Architecture](HARNESS_ARCHITECTURE.md)
 - [Full four-source registry map](docs/registry-map.md)
 - [Optional planning templates](docs/templates.md) and [tmux workflow](docs/tmux-workflow.md)
-- [Historical PR #5 audit](docs/frontier-harness-audit.md)
+- [Historical audit of the August harness](docs/frontier-harness-audit.md)
 - [Model assumptions and retirement tests](docs/model-assumptions.md)
 - [Third-party attribution](THIRD_PARTY_NOTICES.md)

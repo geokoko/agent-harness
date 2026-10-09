@@ -47,6 +47,6 @@ help for model/effort controls instead of assuming a saved flag remains valid.
 No custom launcher, shared journal, automatic retry service or global state
 directory is required.
 
-Source: shortened from September’s
-[tmux guide](https://github.com/geokoko/agent-harness/blob/128efe0edf1418958e473f384694ea9358b6c435/codex/workflows/tmux-agents.md),
-with permanent roles, auto-publication assumptions and custom helpers removed.
+Source: shortened from the September tuning line's guide to running agents in
+tmux windows, with permanent roles, auto-publication assumptions and custom
+helpers removed.

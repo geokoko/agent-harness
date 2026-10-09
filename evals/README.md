@@ -1,13 +1,13 @@
 # Evidence, not prompt aesthetics
 
-> Historical PR #5 evidence. These results do not evaluate the October integrated
-> candidate or the September branch. See the [current registry map](../docs/registry-map.md)
+> Historical evidence from the Codex native rebuild. These results do not evaluate
+> the October integrated candidate or the September tuning line. See the [current registry map](../docs/registry-map.md)
 > and [build evidence](../docs/build-evidence.md).
 
-Historical baseline: `e65d080f2a69457942abaee69d613e1851e9314d`.
-The candidate in the checked-in results is **PR #5 at
-`1938949977101c403e002037ad73e7401f08203c`**, not this integrated checkout or an
-installed home configuration. Two evidence layers remain: filesystem contracts
+Historical baseline: the August harness. The candidate in the checked-in results
+is **the Codex native rebuild**, not this integrated checkout or an installed
+home configuration. Neither snapshot is in the published history, so those
+comparisons cannot be rerun from a public clone. Two evidence layers remain: filesystem contracts
 and native discovery. The coding runner and its model results were removed; see
 [historical coding comparison](#historical-coding-comparison).
 
@@ -18,9 +18,8 @@ file; do not overwrite the historical structural record:
 
 ```bash
 scripts/test-helpers
+# Compares the working tree with HEAD unless --baseline names another commit.
 scripts/evaluate-harness --output /tmp/harness-current-structural.json
-# A newer baseline uses its own shared-contract layout and installer flags.
-scripts/evaluate-harness --baseline HEAD
 ```
 
 These commands make no model calls. Use Bash, Git, GNU coreutils and Python 3.12+;
@@ -32,11 +31,11 @@ destination initializers are checked, then those initializers are redirected;
 linking/conflict logic remains unchanged. Unknown legacy initializers and missing
 required workload sources fail the evaluation. HOME and CODEX_HOME are not overridden.
 
-The following table records the historical comparison against PR #5. No integrated
+The following table records the historical comparison against the Codex rebuild. No integrated
 candidate source-size measurements are recorded in this table or the checked-in
 JSON; see [build evidence](../docs/build-evidence.md) for current validation limits.
 
-| Contract or source measurement | Old baseline | PR #5 |
+| Contract or source measurement | August harness | Codex rebuild |
 |---|---:|---:|
 | Installer scenario contracts | 7/16 | 16/16 |
 | Codex skill entries | 35 | 5 |
@@ -60,7 +59,7 @@ preservation of existing files. No test enforces
 provider parity, a role count, or a prompt-heading ritual.
 
 These are historical source sizes, not actual model context or billing. At a rough
-four characters per token, PR #5's optional common prefix fell from about **338 to 145**
+four characters per token, the Codex rebuild's optional common prefix fell from about **338 to 145**
 tokens, ordinary planning from **683 to zero custom tokens**, review from
 **741 to 354**, and graph skill/guide from **13,382 to zero custom tokens**.
 These estimates do not describe the integrated candidate. Native instructions and
@@ -89,7 +88,7 @@ links and references were validated locally.
 ## Historical coding comparison
 
 A ten-workload coding corpus compared the old prompt/catalog, native behavior and
-PR #5 across 198 Codex and Claude Code trajectories (September 29). All arms
+the Codex rebuild across 198 Codex and Claude Code trajectories (September 29). All arms
 passed 26–28 of 30 strict tasks, so the fixtures could not separate them; only
 cost differed. Candidate Claude input was 35.5% lower than old, but native-only
 was cheaper still. In a separate review comparison, an adapted graph workflow
@@ -97,8 +96,8 @@ cost 4.27× and primary-plus-reviewer 1.98× primary-only, detecting no addition
 seeded defects. That result justified removing mandatory review topology.
 
 The runner, corpus and raw records were removed because near-saturated tasks
-measured cost rather than skill behavior. They remain in commit
-`da23eb49cb2ed1649a44b4b3b835027c2c88db6c` (PR #6 branch) under `evals/coding/`.
+measured cost rather than skill behavior; they are not part of the published
+repository.
 
 ## Limits and retirement
 

@@ -1,13 +1,14 @@
 # Frontier harness audit
 
-> Historical PR #5 evidence. These results do not evaluate the October integrated
-> candidate or the September branch. See the [current registry map](registry-map.md)
+> Historical evidence from the Codex native rebuild. These results do not evaluate
+> the October integrated candidate or the September tuning line. See the [current registry map](registry-map.md)
 > and [build evidence](build-evidence.md).
 
-Audited against `e65d080f2a69457942abaee69d613e1851e9314d`; official
+Audited against the August harness; official
 documentation checked on **2026-09-29**. The baseline is versioned Markdown,
 symlink registries and shell helpers, not an agent runtime. The rewrite keeps
-that boundary. Historical implementations remain recoverable from Git.
+that boundary. The audited implementations are described here; their sources are
+not part of the published repository.
 
 ## Evidence and its limits
 
@@ -190,26 +191,26 @@ actual access restrictions. Better model judgment does not replace isolation.
 
 ## What history justifies preserving
 
-- `36ff3d9` established the Markdown/no-runtime boundary, dry-run installation,
+- The July Codex harness established the Markdown/no-runtime boundary, dry-run installation,
   role prompts and handoff conventions. The boundary and deterministic installer
   protections survive; the roles and workflow do not.
-- `c53c73f` repaired lost evidence gates: false-positive checking, consumer
+- A July verification backport repaired lost evidence gates: false-positive checking, consumer
   inspection outside a diff, secret-history inspection, idempotent publication
   and retesting changed behavior. The useful finding/publication contracts
   survive. Broad security exclusions, automatic base merges and mandatory
   planning steps do not follow from those protections.
-- `26d8f85` introduced the graph; its design recorded duplicate findings,
+- The August graph-workflow skill introduced the graph; its design recorded duplicate findings,
   wrong-checkout writes and expensive review. Worktree identity and evidence
   remain meaningful even when the graph is removed.
-- `e65d080` expanded shared sources and the 35-skill parity contract. Sharing
+- The August harness expanded shared sources and the 35-skill parity contract. Sharing
   reduced duplication, but did not evaluate whether each skill was necessary.
-- Side-branch commits `0e0afdc`, `9b32306`, `9f2b22e` and `128efe0` continued
-  changing provider roles/effort policy. They are historical evidence of routing
-  maintenance, not part of the `e65d080` size baseline or changes imported here.
+- The September tuning line kept changing provider roles and effort policy, four
+  times in one day. That is historical evidence of routing maintenance, not part
+  of the August size baseline or changes imported here.
 
 ### Graph counterfactual and historical measurements
 
-An unpublished side-branch report compared
+An unpublished report from a separate branch compared
 different boxes in one campaign. It reports graph runs with 27–110 agents and
 1.29–5.61 million subagent output tokens; an attended manual run used six agents
 and 1.20 million. Reported subagent tokens per shipped fix were 107–200k for

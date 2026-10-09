@@ -1,7 +1,7 @@
 {
-  "baseline_commit": "e65d080f2a69457942abaee69d613e1851e9314d",
-  "candidate": "historical PR #5 candidate at 1938949977101c403e002037ad73e7401f08203c",
-  "evidence_scope": "Historical PR #5 structural measurements, preserved unchanged. This is not a measurement of the integrated candidate or the current working tree.",
+  "baseline_commit": "August harness (snapshot not in the published history)",
+  "candidate": "historical Codex native rebuild (snapshot not in the published history)",
+  "evidence_scope": "Historical structural measurements of the Codex native rebuild against the August harness; only these labels changed for publication. This is not a measurement of the integrated candidate or the current working tree.",
   "method": {
     "context": "Exact UTF-8 bytes and whitespace-delimited words in listed source files; not tokens or measured client context.",
     "discovery": "SKILL.md frontmatter excluding delimiters; logical registry entries counted separately, shared sources deduplicated by resolved path.",

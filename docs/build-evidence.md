@@ -1,22 +1,21 @@
 # Integrated candidate build evidence
 
-Prepared locally on 2026-10-05, branch `codex/integrated-harness`, based on PR #5
-commit `1938949977101c403e002037ad73e7401f08203c`. The complete
-[registry map](registry-map.md) identifies all four source snapshots and every
+Prepared locally on 2026-10-05 on top of the Codex native rebuild. The complete
+[registry map](registry-map.md) describes all four source versions and every
 source skill. This record describes the integrated rebuild and its preparation
-checks. Publication review evidence identifies the exact diff separately.
+checks.
 
 ## What was combined
 
-- PR #5 supplies the shared-source architecture, native client adapters,
+- The Codex native rebuild supplies the shared-source architecture, native client adapters,
   dry-run/no-clobber installers, and five original personal contracts.
-- September supplies the full CPO/CTO mandates and references, plus diff-base,
+- The September tuning line supplies the full CPO/CTO mandates and references, plus diff-base,
   QA, course-source, benchmark and delegation evidence rules.
-- PR #4 supplies the bounded decision-review concept and coding preferences.
+- The Claude modernization proposal supplies the bounded decision-review concept and coding preferences.
 - At the owner’s request, decision-review also preserves office-hours open-ended
   brainstorming and learning/hackathon/weekend-project exploration. The user can
   explore collaboratively without a forced verdict or commercial viability test.
-- Main supplies useful planning, ticket, domain and testing formats as optional
+- The August harness supplies useful planning, ticket, domain and testing formats as optional
   references rather than separate mandatory workflows.
 - The owner explicitly requires Claude review of Codex-written changes before
   shipping and explicit authorization for the shipping action. Both rules are
@@ -58,7 +57,7 @@ Codex then reconciled the two versions into one shared implementation:
 | Proposed aesthetic rules and numeric fallback thresholds | Do not adopt as defaults; Claude itself flagged them for confirmation. Use the project's actual standards and comparable evidence |
 | Note template | Keep the existing source-faithful template; preserve September's content/extraction distinction |
 
-Claude reported that PR #5 lacked `claude/CLAUDE.md`. Inspection resolved this:
+Claude reported that the Codex rebuild lacked `claude/CLAUDE.md`. Inspection resolved this:
 it exists as a relative link to `shared/AGENTS.md`, in both the snapshot and
 candidate. The link was preserved, and no duplicate instruction source was added.
 Its original draft report is retained verbatim, including that corrected claim.
@@ -137,7 +136,7 @@ system. Plan mode with Bash also declined, but only by instruction. A
 the reported model. Discovery, opinion quality and benefit over a fresh
 same-model brief are not evaluated.
 
-PR #6 review on 2026-10-06 found that these probes did not cover saved Codex
+The integration review on 2026-10-06 found that these probes did not cover saved Codex
 command allow rules, which can permit execution outside the read-only sandbox.
 The launch now includes `--ignore-rules` and requires remaining write-capable
 integrations, hooks and rules to be disabled for that invocation before launch.
@@ -164,18 +163,19 @@ roadmap and WIP, catch up on collaborators' relevant changes, and optionally
 learn an unfamiliar repository area. `project-catchup` reworks
 engineering-weekly-review/retro for this purpose.
 
-Codex prepared the addition locally against `da23eb4`, before the eval runner
-was removed. Two independent, isolated Codex subagent trials used fictional
+Codex prepared the addition locally against the first integrated commit, before
+the eval runner was removed. Two independent, isolated Codex subagent trials used fictional
 evidence snapshots: one reconciled a pilot roadmap with changed issues, PRs and
 uncommitted work; the other recovered subsystem WIP, included relevant API/build
 changes, explained an unfamiliar module and asked about an uncertain last-seen
 baseline. These test responses under supplied instructions, not live repository
 or tracker retrieval or native client discovery. Claude Code (`claude-opus-5-5`)
-ported it onto the consult and learn-by-building commits as `bc672c7`; the
+ported it onto the integrated branch after the consult and learn-by-building
+additions; the
 contract, its model-assumptions paragraph and the registry-map destination rows
 are Codex's, while the port merged catalog lists and this record.
 
-Claude Code's code-review skill reviewed `bc672c7`, and a read-only `consult`
+Claude Code's code-review skill reviewed that port, and a read-only `consult`
 session that reported `claude-fable-5-1` gave a second opinion; a consultation
 is not the review `ship` requires. Both found that the contract did not forbid
 pull, merge or rebase, its description matched plain code-explanation requests,
@@ -191,7 +191,7 @@ rules, and reads prior conversations only when the user points to them. It also
 rewords the `learn-by-building` description and adds a metadata check against
 unquoted `: ` or ` #`. A second Fable consultation of those edits found the
 read-only rule unscoped and this record imprecise. A final code-review of
-`85d67e9..6fd78a9`, run as a fork of the editing session, found that resume
+those edits, run as a fork of the editing session, found that resume
 ignored blocked or conflicting tasks, the read-only and data rules were partial
 lists, agent-authored WIP could be presented as the user's, and three limits had
 been trimmed. Each was corrected; the read-only and data rules are now
@@ -287,7 +287,7 @@ personal or global files. These wording changes were not re-evaluated.
 
 ## Validation boundaries
 
-At PR #6 head `d455b40`, `scripts/test-helpers` passed: Bash syntax for the three
+Before the integration review, `scripts/test-helpers` passed: Bash syntax for the three
 scripts and 13 unit tests covering native discovery, opt-in metadata,
 frontmatter keys, two plain-YAML description hazards, 16 isolated installer
 scenarios, conflict guards and installed reference resolution after path
@@ -297,13 +297,14 @@ the rest are discoverable. ShellCheck is not installed and was skipped; runtime
 discovery in a freshly installed personal client and live permission
 enforcement are not established here.
 
-The 2026-10-06 PR #6 repairs were prepared on `codex/pr6-review-fixes` from
-`d455b40`. Both installers now use the canonical destination they preflight.
+The 2026-10-06 integration-review repairs were prepared on top of that state. Both installers now use the canonical destination they preflight.
 The evaluator selects each snapshot's workload layout and installer flags, and
 rejects unrecognized legacy destination initializers before execution. The new
 regressions failed before the repairs and passed afterward. `scripts/test-helpers`
-passes all 18 tests, including CLI comparisons against `e65d080`, `1938949` and
-`d455b40`; historical installer results remain 7/16 and modern results are 16/16.
+passed all 18 tests, including CLI comparisons against the August harness, the
+Codex rebuild and the pre-repair integrated state; historical installer results
+remained 7/16 and modern results 16/16. Those snapshots are not in the published
+history, so comparisons against them are skipped in a public clone.
 Bash/Python syntax, skill metadata/references, all 39 tracked symlinks and
 `git diff --check` pass. ShellCheck is unavailable. A separate Codex diff review
 found no further issues; this is not the Claude review required before publication.
@@ -322,8 +323,8 @@ open. This checks one response under supplied instructions; native discovery and
 multi-turn behavior remain untested. No extra Claude authoring run was performed
 for this follow-up edit to the shared contract.
 
-The historical 198 trajectories compared old/native/PR #5 configurations; their
-runner and records were later removed from this branch (summary in
+The historical 198 trajectories compared the August harness, native behavior and
+the Codex rebuild; their runner and records were later removed (summary in
 [evals](../evals/README.md#historical-coding-comparison)). They do not measure
 this integrated candidate and are not evidence that these contracts improve coding.
 
@@ -344,9 +345,8 @@ Code uses Claude in Chrome; an unavailable connection must be reported without
 silently substituting another browser or automation stack. Neither connection
 was exercised while editing this instruction.
 
-Preparation uses an isolated clone. Publishing this branch does not alter the
-installed source checkout, personal skill links or the two earlier proposals.
-Installation, merging and deployment remain separate actions. Before the
-authorized publication, validation and Claude review must cover the actual diff;
-the resulting PR records the commit and review evidence. This document itself
-does not grant authority for any further action.
+Preparation uses an isolated clone. Publishing does not alter the installed
+source checkout or personal skill links. Installation, merging and deployment
+remain separate actions. Before an authorized publication, validation and Claude
+review must cover the actual diff. This document itself does not grant authority
+for any further action.
