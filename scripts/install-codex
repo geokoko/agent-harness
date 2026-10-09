@@ -1,0 +1,143 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage: scripts/install-codex [--dry-run | --apply] [--global-agents]
+                             [--skills-dir DIRECTORY] [--codex-home DIRECTORY]
+
+Default: dry-run. Link Codex skills into $HOME/.agents/skills. With
+--global-agents, also link codex/AGENTS.md into ${CODEX_HOME:-$HOME/.codex}.
+Existing files or links to other targets are reported and never replaced.
+Any conflict aborts the entire installation before creating links.
+Run as the intended user, without sudo.
+EOF
+}
+
+if [[ -n ${SUDO_USER-} ]]; then
+  printf 'Refusing to run under sudo; run as the intended user.\n' >&2
+  exit 1
+fi
+
+apply=false
+global_agents=false
+skills_dir="$HOME/.agents/skills"
+codex_home="${CODEX_HOME:-$HOME/.codex}"
+codex_home_given=false
+
+while (($#)); do
+  case "$1" in
+    --dry-run) apply=false ;;
+    --apply) apply=true ;;
+    --global-agents) global_agents=true ;;
+    --skills-dir|--codex-home)
+      if (($# < 2)) || [[ -z $2 || $2 == --* ]]; then
+        usage >&2
+        exit 2
+      fi
+      if [[ $1 == --skills-dir ]]; then skills_dir=$2; else codex_home=$2; codex_home_given=true; fi
+      shift
+      ;;
+    -h|--help) usage; exit 0 ;;
+    *) printf 'Unknown option: %s\n' "$1" >&2; usage >&2; exit 2 ;;
+  esac
+  shift
+done
+
+# Reject obstructed parent paths before creating any skill links.
+check_directory() {
+  local path=$1 parent
+  while [[ ! -e $path && ! -L $path ]]; do
+    parent=$(dirname -- "$path")
+    [[ $parent != "$path" ]] || break
+    path=$parent
+  done
+  [[ -d $path ]] || {
+    printf 'conflict: %s is not a usable directory\n' "$path" >&2
+    return 1
+  }
+}
+if $codex_home_given && ! $global_agents; then
+  printf 'warning: --codex-home has no effect without --global-agents\n' >&2
+fi
+check_directory "$skills_dir"
+if $global_agents; then check_directory "$codex_home"; fi
+
+repo_root=$(cd "$(dirname "$0")/.." && pwd -P)
+# Resolve existing aliases and absent path components without creating them.
+skills_path=$(realpath -m -- "$skills_dir")
+skills_dir=$skills_path
+if $global_agents; then
+  # A future skill symlink must never become a parent of the instruction link.
+  codex_home=$(realpath -m -- "$codex_home")
+  instruction_path=$(realpath -m -- "$codex_home/AGENTS.md")
+  if [[ $skills_path == "$instruction_path" || $skills_path == "$instruction_path"/* ]]; then
+    printf 'conflict: skills destination is inside the instruction file: %s\n' "$skills_dir" >&2
+    exit 1
+  fi
+  for skill_file in "$repo_root"/codex-skills/*/SKILL.md; do
+    [[ -f $skill_file ]] || continue
+    skill_dir=$(dirname "$skill_file")
+    source_path=$(realpath -- "$skill_dir")
+    destination_path="$skills_path/$(basename "$skill_dir")"
+    if [[ $instruction_path == "$destination_path"/* || $instruction_path == "$source_path"/* ]]; then
+      printf 'conflict: instruction destination is inside a skill link: %s\n' "$codex_home" >&2
+      exit 1
+    fi
+  done
+fi
+conflicts=0
+sources=()
+destinations=()
+
+plan_link() {
+  local source=$1 destination=$2
+  if [[ -L $destination && $(readlink -- "$destination") == "$source" ]]; then
+    printf 'ok: %s -> %s\n' "$destination" "$source"
+  elif [[ -L $destination && $destination -ef $source ]]; then
+    # ponytail: legacy chains (e.g. via ~/.claude/skills/geo) break when the
+    # intermediate link is retired; report them instead of migrating.
+    printf 'conflict: %s reaches %s only via %s; after review, unlink it and re-run\n' \
+      "$destination" "$source" "$(readlink -- "$destination")" >&2
+    conflicts=1
+  elif [[ -e $destination || -L $destination ]]; then
+    printf 'conflict: %s already exists; inspect it manually\n' "$destination" >&2
+    conflicts=1
+  else
+    sources+=("$source")
+    destinations+=("$destination")
+  fi
+}
+
+for skill_file in "$repo_root"/codex-skills/*/SKILL.md; do
+  [[ -f $skill_file ]] || continue
+  skill_dir=$(dirname "$skill_file")
+  # Never link into a registry or skill tree, including through aliases.
+  for tree in "$repo_root/codex-skills" "$(dirname -- "$(realpath -- "$skill_dir")")"; do
+    if [[ $skills_path == "$tree" || $skills_path == "$tree"/* ]]; then
+      printf 'conflict: skills destination %s is inside source tree %s\n' "$skills_dir" "$tree" >&2
+      exit 1
+    fi
+  done
+  plan_link "$skill_dir" "$skills_dir/$(basename "$skill_dir")"
+done
+
+if $global_agents; then
+  plan_link "$repo_root/codex/AGENTS.md" "$codex_home/AGENTS.md"
+fi
+((conflicts == 0)) || exit 1
+for i in "${!sources[@]}"; do
+  if $apply; then
+    mkdir -p -- "$(dirname -- "${destinations[$i]}")"
+    ln -sT -- "${sources[$i]}" "${destinations[$i]}"
+    printf 'apply: %s -> %s\n' "${destinations[$i]}" "${sources[$i]}"
+  else
+    printf 'dry-run: ln -sT %q %q\n' "${sources[$i]}" "${destinations[$i]}"
+  fi
+done
+
+if $apply; then
+  printf 'Install complete. Start a new Codex session to reload instructions and skills.\n'
+else
+  printf 'Dry run only. Re-run with --apply after reviewing every destination.\n'
+fi

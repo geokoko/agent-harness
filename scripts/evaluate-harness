@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+"""Compare a Git baseline with this checkout without model calls or home writes."""
+
+import argparse
+import io
+import json
+from pathlib import Path
+import subprocess
+import sys
+import tarfile
+import tempfile
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "evals"))
+sys.dont_write_bytecode = True
+from harness_eval import context_metrics, installer_cases, size  # noqa: E402
+
+
+def workload_metrics(root):
+    # Both baseline and candidate can use either repository layout. The shared
+    # instruction source marks the rebuild; required workload files stay strict.
+    old = not (root / "shared/AGENTS.md").is_file()
+    paths = {
+        "implementation_plan": ["codex-skills/plan/SKILL.md"] if old else [],
+        "code_review": ["codex-skills/code-check/SKILL.md"] if old else ["shared-skills/review/SKILL.md"],
+        "dual_agent_coordination": ["shared-skills/dual-agent-software-engineering/SKILL.md",
+            "shared-skills/dual-agent-software-engineering/references/phases.md"] if old else [],
+        "public_page_extraction": ["codex-skills/scrape/SKILL.md"] if old else [],
+        "study_notes": ["codex-skills/note-creation/SKILL.md",
+                        "codex-skills/note-creation/references/note-template.md"],
+        "task_recovery": ["codex-skills/checkpoint/SKILL.md"] if old else ["shared-skills/handoff/SKILL.md"],
+        "graph_workflow": ["claude-skills/graph-workflow/SKILL.md", "docs/graph-workflow.md"] if old else [],
+    }
+    result = {}
+    for name, entries in paths.items():
+        missing = [entry for entry in entries if not (root / entry).is_file()]
+        if missing:
+            raise ValueError(f"Workload {name} has missing source files: {missing}")
+        result[name] = {"paths": entries, **size([root / entry for entry in entries])}
+    return result
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--baseline", default="e65d080", help="Local Git commit to compare")
+    parser.add_argument("--output", type=Path, help="Also write this JSON report to a file")
+    args = parser.parse_args()
+    baseline = subprocess.check_output(["git", "rev-parse", "--verify", f"{args.baseline}^{{commit}}"], cwd=ROOT, text=True).strip()
+    archive = subprocess.check_output(["git", "archive", "--format=tar", baseline], cwd=ROOT)
+    with tempfile.TemporaryDirectory(prefix="harness-baseline-") as directory:
+        old = Path(directory)
+        with tarfile.open(fileobj=io.BytesIO(archive)) as stream:
+            stream.extractall(old, filter="data")
+        report = {
+            "baseline_commit": baseline,
+            "candidate": "current working tree",
+            "method": {
+                "context": "Exact UTF-8 bytes and whitespace-delimited words in listed source files; not tokens or measured client context.",
+                "discovery": "SKILL.md frontmatter excluding delimiters; logical registry entries counted separately, shared sources deduplicated by resolved path.",
+                "installers": "Identical isolated filesystem scenarios. Use each installer's destination flags when supported; recognized legacy scripts are copied and their destination initialization is checked and redirected. No HOME/CODEX_HOME override.",
+                "samples": 1,
+                "inference_calls": 0,
+            },
+            "old": {"context": context_metrics(old), "workloads": workload_metrics(old),
+                    "installer_cases": installer_cases(old)},
+            "new": {"context": context_metrics(ROOT), "workloads": workload_metrics(ROOT),
+                    "installer_cases": installer_cases(ROOT)},
+            "limitations": [
+                "Deterministic installation and structural evidence does not establish model task completion, correctness, interventions or reasoning quality.",
+                "This script makes no model calls.",
+                "Source size is a context-pressure proxy; neither client loads every skill body on every turn.",
+                "Zero custom instruction bytes for a retired workflow means native behavior handles it; it does not mean zero client context or inference cost.",
+            ],
+        }
+    for version in ("old", "new"):
+        cases = report[version]["installer_cases"]
+        report[version]["installer_summary"] = {"passed": sum(case["passed"] for case in cases), "total": len(cases)}
+    rendered = json.dumps(report, indent=2) + "\n"
+    if args.output:
+        args.output.write_text(rendered)
+    print(rendered, end="")
+    return 0 if all(case["passed"] for case in report["new"]["installer_cases"]) else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

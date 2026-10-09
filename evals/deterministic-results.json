@@ -1,0 +1,468 @@
+{
+  "baseline_commit": "e65d080f2a69457942abaee69d613e1851e9314d",
+  "candidate": "historical PR #5 candidate at 1938949977101c403e002037ad73e7401f08203c",
+  "evidence_scope": "Historical PR #5 structural measurements, preserved unchanged. This is not a measurement of the integrated candidate or the current working tree.",
+  "method": {
+    "context": "Exact UTF-8 bytes and whitespace-delimited words in listed source files; not tokens or measured client context.",
+    "discovery": "SKILL.md frontmatter excluding delimiters; logical registry entries counted separately, shared sources deduplicated by resolved path.",
+    "installers": "Identical isolated filesystem scenarios. Baseline fixture copies redirect only destination/home initialization because old installers have no target-directory flags; no HOME/CODEX_HOME override.",
+    "samples": 1,
+    "inference_calls": 0
+  },
+  "old": {
+    "context": {
+      "codex_global_instructions": {
+        "files": 1,
+        "bytes": 1352,
+        "words": 192,
+        "characters": 1352,
+        "estimated_tokens_at_4_characters": 338
+      },
+      "claude_router_on_invocation": {
+        "files": 1,
+        "bytes": 4439,
+        "words": 656,
+        "characters": 4405,
+        "estimated_tokens_at_4_characters": 1102
+      },
+      "codex-skills": {
+        "automatic_discovery_skills": 31,
+        "automatic_discovery_bytes": 6082,
+        "logical_skills": 35,
+        "discovery_bytes": 6907,
+        "discovery_words": 886,
+        "loaded_files": {
+          "files": 35,
+          "bytes": 105087,
+          "words": 15476,
+          "characters": 104869,
+          "estimated_tokens_at_4_characters": 26232
+        }
+      },
+      "claude-skills": {
+        "automatic_discovery_skills": 37,
+        "automatic_discovery_bytes": 14642,
+        "logical_skills": 41,
+        "discovery_bytes": 16341,
+        "discovery_words": 2298,
+        "loaded_files": {
+          "files": 41,
+          "bytes": 205854,
+          "words": 31063,
+          "characters": 204633,
+          "estimated_tokens_at_4_characters": 51171
+        }
+      },
+      "unique_skill_sources": {
+        "files": 68,
+        "bytes": 280094,
+        "words": 41960,
+        "characters": 278803,
+        "estimated_tokens_at_4_characters": 69725
+      }
+    },
+    "workloads": {
+      "implementation_plan": {
+        "paths": [
+          "codex-skills/plan/SKILL.md"
+        ],
+        "files": 1,
+        "bytes": 2731,
+        "words": 385,
+        "characters": 2731,
+        "estimated_tokens_at_4_characters": 683
+      },
+      "code_review": {
+        "paths": [
+          "codex-skills/code-check/SKILL.md"
+        ],
+        "files": 1,
+        "bytes": 2962,
+        "words": 418,
+        "characters": 2962,
+        "estimated_tokens_at_4_characters": 741
+      },
+      "dual_agent_coordination": {
+        "paths": [
+          "shared-skills/dual-agent-software-engineering/SKILL.md",
+          "shared-skills/dual-agent-software-engineering/references/phases.md"
+        ],
+        "files": 2,
+        "bytes": 16751,
+        "words": 2179,
+        "characters": 16751,
+        "estimated_tokens_at_4_characters": 4188
+      },
+      "public_page_extraction": {
+        "paths": [
+          "codex-skills/scrape/SKILL.md"
+        ],
+        "files": 1,
+        "bytes": 2221,
+        "words": 332,
+        "characters": 2221,
+        "estimated_tokens_at_4_characters": 556
+      },
+      "study_notes": {
+        "paths": [
+          "codex-skills/note-creation/SKILL.md",
+          "codex-skills/note-creation/references/note-template.md"
+        ],
+        "files": 2,
+        "bytes": 5486,
+        "words": 776,
+        "characters": 5471,
+        "estimated_tokens_at_4_characters": 1369
+      },
+      "task_recovery": {
+        "paths": [
+          "codex-skills/checkpoint/SKILL.md"
+        ],
+        "files": 1,
+        "bytes": 1975,
+        "words": 280,
+        "characters": 1975,
+        "estimated_tokens_at_4_characters": 494
+      },
+      "graph_workflow": {
+        "paths": [
+          "claude-skills/graph-workflow/SKILL.md",
+          "docs/graph-workflow.md"
+        ],
+        "files": 2,
+        "bytes": 53973,
+        "words": 8005,
+        "characters": 53525,
+        "estimated_tokens_at_4_characters": 13382
+      }
+    },
+    "installer_cases": [
+      {
+        "provider": "codex",
+        "case": "dry_run",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "codex",
+        "case": "fresh_apply",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "codex",
+        "case": "idempotent",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "codex",
+        "case": "file_conflict",
+        "passed": false,
+        "exit_code": 1
+      },
+      {
+        "provider": "codex",
+        "case": "foreign_symlink",
+        "passed": false,
+        "exit_code": 1
+      },
+      {
+        "provider": "codex",
+        "case": "dangling_symlink",
+        "passed": false,
+        "exit_code": 1
+      },
+      {
+        "provider": "codex",
+        "case": "invalid_option",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "provider": "codex",
+        "case": "legacy_directory",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "dry_run",
+        "passed": false,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "fresh_apply",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "idempotent",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "file_conflict",
+        "passed": false,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "foreign_symlink",
+        "passed": false,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "dangling_symlink",
+        "passed": false,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "invalid_option",
+        "passed": false,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "legacy_directory",
+        "passed": false,
+        "exit_code": 0
+      }
+    ],
+    "installer_summary": {
+      "passed": 7,
+      "total": 16
+    }
+  },
+  "new": {
+    "context": {
+      "codex_global_instructions": {
+        "files": 1,
+        "bytes": 582,
+        "words": 78,
+        "characters": 580,
+        "estimated_tokens_at_4_characters": 145
+      },
+      "claude_router_on_invocation": {
+        "files": 0,
+        "bytes": 0,
+        "words": 0,
+        "characters": 0,
+        "estimated_tokens_at_4_characters": 0
+      },
+      "codex-skills": {
+        "automatic_discovery_skills": 1,
+        "automatic_discovery_bytes": 154,
+        "logical_skills": 5,
+        "discovery_bytes": 614,
+        "discovery_words": 76,
+        "loaded_files": {
+          "files": 5,
+          "bytes": 6962,
+          "words": 935,
+          "characters": 6958,
+          "estimated_tokens_at_4_characters": 1741
+        }
+      },
+      "claude-skills": {
+        "automatic_discovery_skills": 1,
+        "automatic_discovery_bytes": 154,
+        "logical_skills": 5,
+        "discovery_bytes": 747,
+        "discovery_words": 84,
+        "loaded_files": {
+          "files": 5,
+          "bytes": 2780,
+          "words": 355,
+          "characters": 2776,
+          "estimated_tokens_at_4_characters": 695
+        }
+      },
+      "unique_skill_sources": {
+        "files": 9,
+        "bytes": 8123,
+        "words": 1077,
+        "characters": 8119,
+        "estimated_tokens_at_4_characters": 2032
+      }
+    },
+    "workloads": {
+      "implementation_plan": {
+        "paths": [],
+        "files": 0,
+        "bytes": 0,
+        "words": 0,
+        "characters": 0,
+        "estimated_tokens_at_4_characters": 0
+      },
+      "code_review": {
+        "paths": [
+          "shared-skills/review/SKILL.md"
+        ],
+        "files": 1,
+        "bytes": 1415,
+        "words": 178,
+        "characters": 1415,
+        "estimated_tokens_at_4_characters": 354
+      },
+      "dual_agent_coordination": {
+        "paths": [],
+        "files": 0,
+        "bytes": 0,
+        "words": 0,
+        "characters": 0,
+        "estimated_tokens_at_4_characters": 0
+      },
+      "public_page_extraction": {
+        "paths": [],
+        "files": 0,
+        "bytes": 0,
+        "words": 0,
+        "characters": 0,
+        "estimated_tokens_at_4_characters": 0
+      },
+      "study_notes": {
+        "paths": [
+          "codex-skills/note-creation/SKILL.md",
+          "codex-skills/note-creation/references/note-template.md"
+        ],
+        "files": 2,
+        "bytes": 2468,
+        "words": 332,
+        "characters": 2450,
+        "estimated_tokens_at_4_characters": 613
+      },
+      "task_recovery": {
+        "paths": [
+          "shared-skills/handoff/SKILL.md"
+        ],
+        "files": 1,
+        "bytes": 1619,
+        "words": 234,
+        "characters": 1619,
+        "estimated_tokens_at_4_characters": 405
+      },
+      "graph_workflow": {
+        "paths": [],
+        "files": 0,
+        "bytes": 0,
+        "words": 0,
+        "characters": 0,
+        "estimated_tokens_at_4_characters": 0
+      }
+    },
+    "installer_cases": [
+      {
+        "provider": "codex",
+        "case": "dry_run",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "codex",
+        "case": "fresh_apply",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "codex",
+        "case": "idempotent",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "codex",
+        "case": "file_conflict",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "provider": "codex",
+        "case": "foreign_symlink",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "provider": "codex",
+        "case": "dangling_symlink",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "provider": "codex",
+        "case": "invalid_option",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "provider": "codex",
+        "case": "legacy_directory",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "dry_run",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "fresh_apply",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "idempotent",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "provider": "claude",
+        "case": "file_conflict",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "provider": "claude",
+        "case": "foreign_symlink",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "provider": "claude",
+        "case": "dangling_symlink",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "provider": "claude",
+        "case": "invalid_option",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "provider": "claude",
+        "case": "legacy_directory",
+        "passed": true,
+        "exit_code": 0
+      }
+    ],
+    "installer_summary": {
+      "passed": 16,
+      "total": 16
+    }
+  },
+  "limitations": [
+    "Deterministic installation and structural evidence does not establish model task completion, correctness, interventions or reasoning quality.",
+    "This script makes no model calls; see evals/coding for separately measured CLI trials and their limitations.",
+    "Source size is a context-pressure proxy; neither client loads every skill body on every turn.",
+    "Zero custom instruction bytes for a retired workflow means native behavior handles it; it does not mean zero client context or inference cost."
+  ]
+}

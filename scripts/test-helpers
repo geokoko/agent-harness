@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root=$(cd "$(dirname "$0")/.." && pwd -P)
+cd "$repo_root"
+
+for script in scripts/install-codex scripts/test-helpers claude-skills/install.sh; do
+  bash -n "$script"
+done
+if command -v shellcheck >/dev/null; then
+  shellcheck scripts/install-codex scripts/test-helpers claude-skills/install.sh
+else
+  printf 'skip: ShellCheck is not installed\n'
+fi
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s evals -p 'test_*.py' -v
