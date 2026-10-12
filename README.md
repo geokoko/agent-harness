@@ -24,7 +24,7 @@ worktrees and subagents. This repository adds no agent runtime or routing layer.
 | [project-catchup](shared-skills/project-catchup/SKILL.md) | Read-only return briefing: recover roadmap and WIP, explain relevant collaborator changes since a baseline and orient to areas the user names | Native discovery or explicit selection |
 | [agents-md-modernizer](shared-skills/agents-md-modernizer/SKILL.md) | Reduce AGENTS.md/CLAUDE.md to what an agent cannot infer: keep/remove/move/rewrite classification, protected rare-but-critical rules, verified commands and paths, and a disposition report with evidence | Native discovery or explicit selection |
 | [handoff](shared-skills/handoff/SKILL.md) | Provider-neutral export with revision identity and reconciliation of stale evidence | Explicit skill selection |
-| [ship](shared-skills/ship/SKILL.md) | Exact-change Claude review before shipping Codex work, scoped publication intent and precise status | Explicit skill selection |
+| [ship](shared-skills/ship/SKILL.md) | Scoped publication intent, actual validation and precise status | Explicit skill selection |
 | [deploy-verify](shared-skills/deploy-verify/SKILL.md) | Existing-deployment verification, exact revision and bounded baseline comparison | Explicit skill selection |
 
 Use `/evidence-review` in Claude Code or `$review` in Codex. The Claude name
@@ -33,8 +33,8 @@ A normal coding, debugging, planning or review request can
 proceed with native behavior; no skill chain precedes implementation.
 [Working agreements](shared/AGENTS.md) are optional personal instructions,
 linked from `claude/CLAUDE.md` and `codex/AGENTS.md`. They preserve the owner’s
-standing requirements: explicit permission for shipping and Claude review before
-shipping Codex-written changes. Review itself grants no publication authority.
+standing requirements for explicit shipping authority, preservation of unrelated
+work, validation and accurate reporting. Review itself grants no publication authority.
 
 This integrated rebuild reconciles four earlier versions of the harness: the
 August cross-client harness, a September line that tuned model roles and added

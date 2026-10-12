@@ -6,8 +6,7 @@ description: Get an independent, read-only opinion from a different model in a f
 # Cross-model consultation
 
 The consultant advises; the current agent remains responsible for the answer
-and any action. Consulting grants no authority beyond the original request and
-does not replace the Claude review that `ship` requires.
+and any action. Consulting grants no authority beyond the original request.
 
 ## Launch
 

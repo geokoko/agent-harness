@@ -3,7 +3,8 @@
 Prepared locally on 2026-10-05 on top of the Codex native rebuild. The complete
 [registry map](registry-map.md) describes all four source versions and every
 source skill. This record describes the integrated rebuild and its preparation
-checks.
+checks. The owner removed the mandatory Claude-review requirement on 2026-10-12;
+references to that requirement below describe the historical build policy.
 
 ## What was combined
 

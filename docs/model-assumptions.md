@@ -15,11 +15,9 @@ an execution requirement, not an assumption about model judgment. The broader
 | A different model given only a neutral brief can surface errors or alternatives the current model and conversation miss. | Owner request recovering the former graph's consultation step; no comparative measurement yet. | `consult`. | Compare consequential decisions with and without consultation, and against a fresh same-model brief; count real issues found after verification, false objections and cost. Delete if a fresh same-model brief is equally useful. |
 | Narrow native discovery and opt-in controls are sufficient without a router. | [Codex skills](https://learn.chatgpt.com/docs/build-skills), [Claude skills](https://code.claude.com/docs/en/skills) document progressive loading and explicit-only invocation. | Discoverable specialist skills; four opt-in contracts with thin native metadata. | Measure missed and accidental activation, loaded context and extra questions after client upgrades. Fix only demonstrated triggers; remove unused contracts rather than grow a router. |
 
-The owner explicitly requires Claude review of Codex-written changes before
-shipping, independently of comparative benchmark results. Preserve that rule
-and explicit publication authority in always-loaded personal instructions.
-Additional review panels or repeated rounds would need evidence that they find
-enough real defects, after false positives and cost, to justify their use.
+Explicit publication authority remains in always-loaded personal instructions.
+Review panels or repeated rounds need evidence that they find enough real
+defects, after false positives and cost, to justify their use.
 
 `cpo` and `cto` preserve September’s broader leadership and execution contracts;
 `decision-review` supports open-ended brainstorming, learning/project exploration

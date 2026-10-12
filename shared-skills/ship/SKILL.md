@@ -11,20 +11,10 @@ authorize merging or deployment. This skill grants no execution permissions.
 The user's explicit no-ship boundary remains in force until they request the
 particular commit, push, PR change, merge, deployment, or installation.
 
-Before publishing Codex-written changes, require Claude review of the actual
-diff being shipped, including relevant uncommitted/new files. Record the base,
-head or working-tree identity, findings, checked evidence and limitations.
-The reviewer reads the diff and relevant surrounding code, not only the author's
-summary. Record actual checks separately from reported checks and unavailable
-integration coverage. Preserve authorship across delegation and handoffs; mixed
-changes containing Codex work still need Claude review. A general request to
-ship does not waive this rule.
-Codex self-review cannot satisfy this owner requirement. Resolve blocking
-findings; relevant edits after review need another Claude pass. If Claude is
-unavailable, finish safe preparation and leave publication pending. Existing
-review evidence may be reused only when it still covers the exact changes.
-Reviewing the changed portion is enough when the earlier reviewed state is
-identifiable; otherwise review the full diff.
+Inspect the actual diff and relevant surrounding code, including uncommitted
+and new files. Record checks actually run and unavailable integration coverage.
+Resolve blocking findings before publication. If a review was requested, record
+the reviewed revision/diff and whether later edits affect its findings.
 
 Use the requested branch, remote, and protocol. Do not silently rebase, merge
 the base, force-push, or publish from the default branch. Preserve unrelated

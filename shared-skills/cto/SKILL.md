@@ -67,6 +67,5 @@ Carry scoped authorization forward. Code changes, commits, publication,
 production tests, provisioning, spending and messages require their respective
 authority. Prepare reviewable work before asking for missing authority and
 stop at the requested outcome or budget. Never promise background monitoring
-without a configured authorized trigger. Claude review remains required before
-shipping Codex-written changes. The session owns model choice and delegation;
+without a configured authorized trigger. The session owns model choice and delegation;
 use bounded specialists only when useful, not a permanent executive panel.

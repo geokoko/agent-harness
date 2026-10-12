@@ -49,7 +49,7 @@ Claude uses `/name`, except the review entry is `/evidence-review`.
 | `project-catchup` | Read-only return briefing: roadmap/WIP, relevant collaborator changes since a baseline, orientation to named areas | Return to a project after time away; not retrospectives or plain explanations |
 | `agents-md-modernizer` | Reduce repository agent-instruction files to non-inferable project constraints, with verified commands/paths and a disposition report | Audit, simplify or modernize AGENTS.md, CLAUDE.md or related instruction files |
 | `handoff` | Portable task state tied to actual revision, evidence and authority | Explicit selection |
-| `ship` | Precisely authorized publication and mandatory Claude review of Codex changes | Explicit selection |
+| `ship` | Precisely authorized publication and evidence of completed checks | Explicit selection |
 | `deploy-verify` | Verify an already-triggered deployment and requested bounded monitoring | Explicit selection |
 
 CPO/CTO are broader mandates than decision-review. They can produce finished
@@ -74,8 +74,6 @@ a return-to-project briefing with an explicit baseline and personal scope.
 
 The four inherited opt-in contracts remain opt-in. Selection and publication
 are separate: invoking `ship` does not create authority beyond the request.
-Mandatory Claude review before shipping Codex-written changes also belongs in
-the shared agreements so ordinary publication paths cannot bypass it.
 
 ## Every source entry and its destination
 
@@ -97,7 +95,7 @@ Destination names are semantic migrations, not installed compatibility aliases.
 | `checkpoint` | Save and restore working context across sessions and machines | Both | Both | — | — | `handoff`; export/recovery on request, without continuous checkpoint ceremony. |
 | `code-check` | Code review of committed and uncommitted changes | Both | Both | Both | — | `review`; actual diff, untracked additions, relevant consumers and evidence. |
 | `codebase-design` | Deep modules, small interfaces and testable seams | Both | — | Both | — | `cto` for a technical mandate; optional module/interface guidance in [templates](templates.md). |
-| `codex-implement` | Delegate specified implementation to Codex, with layered Claude review | Claude | Claude | Claude | — | Direct cross-client delegation when requested; precise scope and independent Claude review before shipping Codex changes. |
+| `codex-implement` | Delegate specified implementation to Codex, with layered Claude review | Claude | Claude | Claude | — | Direct cross-client delegation when requested; precise scope and validation of the resulting changes. |
 | `codify` | Freeze a flow that just worked into a script, fixture and test | Both | Both | Both | — | Direct scripting task; stage and check behavior/fixtures before authorized installation. |
 | `cpo` | Product-lead mandate for strategy and marketing/growth | — | Both | — | — | **Keep `cpo`**: product strategy, positioning/pricing, adoption, marketing/growth and authorized execution. |
 | `cpo-review` | Product review of one initiative: problem, scope, adoption, outcome | Both | — | — | — | `decision-review` for one initiative; `cpo` for the broader product mandate. |
@@ -133,7 +131,7 @@ Destination names are semantic migrations, not installed compatibility aliases.
 | `review` | Evidence and report-only review contract | — | — | — | Codex | **Keep `review`** from the Codex rebuild, strengthened by selected evidence requirements from the Claude proposal and the September line. |
 | `scrape` | Read-only page-data extraction into one JSON document | Both | Both | Both | — | Direct extraction task; requested schema, one validated JSON document when requested, honest incomplete results. |
 | `security-audit` | OWASP Top 10 and STRIDE audit with quote-verified findings | Both | — | Both | — | `review` → [security reference](../shared-skills/review/references/security.md); same destination as September’s `cso`. |
-| `ship` | Pre-push checklist, then push and PR creation | Both | Both | Both | Both | **Keep `ship`** with mandatory Claude review before shipping Codex changes and explicit publication authority. |
+| `ship` | Pre-push checklist, then push and PR creation | Both | Both | Both | Both | **Keep `ship`** with actual-change validation and explicit publication authority. |
 | `spec` | Turn vague intent into a backlog-ready issue specification | Both | Both | — | — | Direct specification task plus optional [template](templates.md); observable acceptance criteria. |
 | `test-first-development` | One vertical slice at a time, red-green-refactor | Both | — | Both | — | Requested TDD mode plus optional [testing guidance](templates.md); no universal test-seam approval gate. |
 | `to-tickets` | Split a plan into small vertical tickets with dependencies | Both | — | — | — | Direct ticket drafting plus optional [template](templates.md); vertical slices and dependencies, separate publication authority. |

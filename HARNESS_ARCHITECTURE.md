@@ -27,8 +27,7 @@ The layers have different lifetimes:
 1. **Personal invariants:** optional [shared/AGENTS.md](shared/AGENTS.md), linked
    by the client-specific instruction paths. It records authority, preservation
    of unrelated work, coding preferences, completion and truthful applied/prepared
-   status. It also preserves explicit shipping authority and required Claude
-   review of Codex-written changes before shipping.
+   status. It also preserves explicit shipping authority.
 2. **Project facts:** the target repository's instructions, commands and domain
    documentation. No global stack guess or mandatory repository-wide scan.
 3. **Task:** current objective, constraints, authority and acceptance criteria.
@@ -97,10 +96,7 @@ adds no overlapping tool wrappers. Tool errors, state inspection and ordinary
 retry behavior belong to the client/model rather than a fixed retry graph.
 
 Native subagents are useful for independent exploration, isolated review or
-separable implementation. The owner requires Claude review of Codex-written
-changes before shipping; record the actual reviewed revision/diff and renew
-review after relevant edits. This is a user requirement, not a claim that
-review panels universally improve results. There is no fixed panel or phase
+separable implementation. There is no required reviewer, fixed panel or phase
 schedule. Concurrent edits use distinct worktrees when appropriate;
 worktrees share Git metadata and may share ports, services and credentials.
 An explicit independent comparison preserves separate candidates until ready,

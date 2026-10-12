@@ -1,6 +1,6 @@
 ---
 name: ship
-description: Apply the personal publication contract to explicitly authorized commit, push or pull-request work, including the Claude review required before Codex-written changes are published.
+description: Apply the personal publication contract to explicitly authorized commit, push or pull-request work.
 disable-model-invocation: true
 ---
 

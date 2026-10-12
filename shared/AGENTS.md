@@ -8,12 +8,6 @@ personal client configuration unless the user explicitly requests that action.
 For destructive actions or external writes, verify that existing authorization
 covers the action and target; ask only for missing authority, not approval again.
 
-Before shipping Codex-written changes, obtain a Claude review of the actual
-changes being published. Codex self-review is not a substitute. Record the
-reviewed revision/diff and evidence; relevant later edits need renewed review.
-If Claude is unavailable, complete safe preparation and report publication as
-pending. Review does not itself authorize publication.
-
 Explain a new dependency and its purpose before adding it. Prefer existing
 project conventions and avoid unrequested abstractions or tooling. Handle
 errors explicitly; fix the shared cause and inspect affected callers. Batch
