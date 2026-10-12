@@ -54,26 +54,9 @@ only for the relevant task.
 
 Generic advice to plan, navigate a repository, debug, test or act like a senior
 engineer does not justify another skill. A recurring user-requested shortcut can
-earn a skill when it reliably delivers a concrete artifact: `docs-update` edits
+earn a skill when it reliably delivers a concrete artifact: for example, `docs-update` edits
 the requested documentation, and `ui-design` carries design intent through
-to the requested interface. The owner also selected `browser-qa`, `skill-eval`
-and `ci-repair` for repeatable journey tests, skill comparisons and CI repairs,
-and `learn-by-building` for learning engineering through real project work.
-`project-catchup` restores context after time away, with a scoped change briefing
-and optional orientation to an unfamiliar area. `agents-md-modernizer` reduces a
-repository's agent instructions to what a current agent cannot infer.
-Mandatory phase sequences do not earn a skill, nor do role personas, repeated
-review loops or fixed model assignments. Project facts
-belong in that project's instructions and documentation.
-
-Share a body when both clients can consume it unchanged. Add a thin client
-adapter only for an actual native difference. Four Claude adapters enforce
-manual invocation and link to shared contracts; Codex uses native invocation
-metadata. Notes, product/technical leadership, decision review, frontend design,
-documentation updates, browser QA, skill evaluation, CI repair, cross-model
-consultation, guided learning and project catch-up link directly in both
-registries.
-Catalog parity is not a requirement.
+to the requested interface. 
 
 ## Permissions and state
 
@@ -114,13 +97,7 @@ Local tests check source and installation contracts. Model-task results,
 context measurements and their limitations are separate in
 [the evaluation record](evals/README.md).
 
-## Keep the harness small
-
-Before adding a mechanism, identify the observed failure and compare native
-behavior with the candidate on representative tasks. Measure correctness and
-interventions alongside context, calls, latency and cost where available.
-Revisit retained instructions after client/model upgrades; remove machinery
-whose improvement no longer justifies its cost.
+## Goal is to keep the harness small
 
 - [Architecture](HARNESS_ARCHITECTURE.md)
 - [Full four-source registry map](docs/registry-map.md)
