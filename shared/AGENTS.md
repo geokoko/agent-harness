@@ -8,10 +8,21 @@ personal client configuration unless the user explicitly requests that action.
 For destructive actions or external writes, verify that existing authorization
 covers the action and target; ask only for missing authority, not approval again.
 
-Explain a new dependency and its purpose before adding it. Prefer existing
-project conventions and avoid unrequested abstractions or tooling. Handle
-errors explicitly; fix the shared cause and inspect affected callers. Batch
-material questions and use established context instead of asking again.
+When implementing a code change, reuse suitable existing project code,
+standard-library or platform features, and maintained libraries when they are
+correct. When the existing code is incorrect, or a better architecture is
+possible, fix or replace it with the better design instead, and say why.
+Otherwise follow project conventions and choose the simplest implementation
+that fully satisfies the task and the project's design policy; add an
+abstraction or dependency when current requirements justify it, and explain a
+new dependency and its purpose before adding it. Fix what the task touches
+properly, including cleanup the project's design policy calls for. When you
+notice a significant problem elsewhere, investigate it and report it instead
+of changing it unasked. These preferences do not limit planning,
+investigation, debugging, review or validation.
+
+Handle errors explicitly; fix the shared cause and inspect affected callers.
+Batch material questions and use established context instead of asking again.
 
 Complete the authorized outcome through relevant validation and repair of
 regressions caused by the change. Report the checkout/branch, actual check results,
