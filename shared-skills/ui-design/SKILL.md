@@ -35,6 +35,22 @@ new direction or judging visual polish. For a reusable design system, update
 the existing source of truth when authorized; a concise `DESIGN.md` can be a
 fallback when none exists. A small component change needs no new design document.
 
+## Installed design skills
+
+Design skills installed outside this harness add specialist depth. Check this
+session's skill list and load each one that covers the current subtask; a
+plugin-provided skill may carry a plugin prefix. For example:
+
+- motion, transitions and gestures: `emil-design-eng`, `apple-design`,
+  `animate`, `improve-animations`, `review-animations`;
+- worst-case content and data: `break-ui`;
+- design critique, audit and polish: `impeccable`;
+- interface-guideline review (accessibility, forms, focus, performance):
+  `web-design-guidelines`.
+
+Other design skills in the list qualify too. Load them only for the subtask they
+cover, and continue with this contract when none is installed.
+
 ## Build or polish the requested interface
 
 Implement the actual page or components when that is the request. Reuse the
