@@ -7,6 +7,8 @@ Do not commit, push, create/change/close a PR, merge, deploy, install, or change
 personal client configuration unless the user explicitly requests that action.
 For destructive actions or external writes, verify that existing authorization
 covers the action and target; ask only for missing authority, not approval again.
+To post review findings to a GitHub pull request, follow `references/github-pr.md`
+in the installed review skill (`evidence-review` in Claude Code, `review` in Codex).
 
 When implementing a code change, reuse suitable existing project code,
 standard-library or platform features, and maintained libraries when they are

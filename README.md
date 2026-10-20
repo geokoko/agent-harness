@@ -10,7 +10,7 @@ worktrees and subagents. This repository adds no agent runtime or routing layer.
 | Capability | Useful addition beyond native behavior | Invocation |
 |---|---|---|
 | [note-creation](shared-skills/note-creation/SKILL.md) | Personal Greek engineering exam-note standards, complete requested coverage, worked examples and PDF evidence | Native discovery or explicit selection |
-| [review](shared-skills/review/SKILL.md) | Multiple-choice focus selection when unclear; report-only evidence contract with specialist references | Explicit skill selection |
+| [review](shared-skills/review/SKILL.md) | Multiple-choice focus selection when unclear; report-only evidence contract with specialist references and a GitHub pull request posting guide | Explicit skill selection |
 | [decision-review](shared-skills/decision-review/SKILL.md) | Open-ended brainstorming, learning/weekend-project exploration and evidence-based initiative decisions | Native discovery or explicit selection |
 | [learn-by-building](shared-skills/learn-by-building/SKILL.md) | Learn through an already chosen task: on decisions the user owns, they commit before seeing yours; their code is reviewed rather than rewritten; notes separate explained from demonstrated understanding | Native discovery or explicit selection |
 | [cpo](shared-skills/cpo/SKILL.md) | Product strategy, discovery, positioning, pricing and growth deliverables within granted authority | Native discovery or explicit selection |

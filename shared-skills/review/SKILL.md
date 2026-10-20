@@ -42,4 +42,6 @@ Read a reference only for the requested specialist objective:
 Order confirmed findings by impact, then state the validation performed and
 remaining scope limits. No findings means no actionable defect was established,
 not that correctness was proved. Ordinary review needs no panel, fixed number
-of rounds, or repair phase. Review does not authorize publication.
+of rounds, or repair phase. Review does not authorize publication. When the
+user asks to post findings to a GitHub pull request, follow
+[GitHub pull request reviews](references/github-pr.md).
